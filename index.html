@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+    <link rel="stylesheet" href="pages/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+</head>
+
+<body class="page">
+    <header class="header">
+      <img class="header__logo" src="images/logo.svg" alt="логотип">
+    </header>
+
+    <main>
+      <section class="profile">
+        <img class="profile__avatar" src="images/avatar.png" alt="Ваш аватар">
+        <div class="profile__user-info">
+          <div class="profile__heading">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__edit-btn" aria-label="Редактировать" type="button"></button>
+          </div>
+          <p class="profile__description">Исследователь океана</p>
+        </div>
+        <button class="profile__add-btn" aria-label="Добавить фото" type="button"></button>
+      </section>
+
+      <section class="cards">
+        <ul class="cards__list">
+          <li class="card">
+            <img class="card__image" src="images/smol.jpg" alt="Смольный собор">
+            <div class="card__caption">
+              <h2 class="card__heading">Смольный собор</h2>
+              <button class="card__like-btn" aria-label="Нравится" type="button"></button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__image" src="images/issak.jpg" alt="Иссакиевский собор">
+            <div class="card__caption">
+              <h2 class="card__heading">Иссакиевский собор</h2>
+              <button class="card__like-btn" aria-label="Нравится" type="button"></button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__image" src="images/petrop.jpg" alt="Петропавловская крепость">
+            <div class="card__caption">
+              <h2 class="card__heading">Петропавловская крепость</h2>
+              <button class="card__like-btn" aria-label="Нравится" type="button"></button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__image" src="images/kaz.jpg" alt="Казанского собора">
+            <div class="card__caption">
+              <h2 class="card__heading">Казанского собора</h2>
+              <button class="card__like-btn" aria-label="Нравится" type="button"></button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__image" src="images/spas.jpg" alt="Собор Спаса-на-крови">
+            <div class="card__caption">
+              <h2 class="card__heading">Собор Спаса-на-крови</h2>
+              <button class="card__like-btn" aria-label="Нравится" type="button"></button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__image" src="images/dvor.jpg" alt="Дворцовая площадь">
+            <div class="card__caption">
+              <h2 class="card__heading">Дворцовая площадь</h2>
+              <button class="card__like-btn" aria-label="Нравится" type="button"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copyright">© 2021 Mesto Russia</p>
+    </footer>
+
+    <section class="popup">
+      <div class="popup__container">
+        <button class="popup__close-btn" aria-label="Закрыть" type="button"></button>
+        <form class="form" name="profile-Form">
+          <h2 class="form__heading">Редактировать профиль</h2>
+          <fieldset class="form__input-container">
+            <input class="form__input form__input_el_heading" type="text" name="heading">
+            <input class="form__input form__input_el_subheading" type="text" name="subheading">
+          </fieldset>
+          <button class="form__submit-btn" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </section>
+    <script src="js/script.js"></script>
+</body>
+</html>
