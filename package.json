@@ -12,8 +12,7 @@
     "url": "git+https://github.com/Ivan-Galaido/mesto.git"
   },
   "keywords": [
-    "gallery",
-    "photo"
+    "gallery"
   ],
   "author": "Ivan Galaido <ivan.galaido@yandex.ru>",
   "license": "ISC",
