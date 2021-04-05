@@ -1,14 +1,11 @@
-import './src/pages/index.css';
-
+import './pages/index.css';
 import Card from './Card.js';
 import Section from './Section.js';
 import FormValidator from './FormValidator.js';
 import { VALIDATION_SETTINGS } from './FormValidator.js';
 import PopupWithForm from './PopupWithForm.js';
-
 import PopupWithImage from './PopupWithImage.js';
 import UserInfo from './UserInfo.js';
-
 
 export { CardPopup };
 const profileEditButton = document.querySelector('.button_edit');
