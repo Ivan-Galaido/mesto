@@ -1,7 +1,7 @@
 # Проект 4: Место
 
 ## Ссылка на проект:
-* [Место Russia](https://ivan-galaido.github.io/mesto/index.html)
+* [Место Russia](https://ivan-galaido.github.io/mesto/src/index.html)
 
 # Ссылка на макет:
 * [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
