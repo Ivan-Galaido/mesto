@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/Ivan-Galaido/mesto/issues"
   },
-  "homepage": "https://github.com/Ivan-Galaido/mesto/blob/main/README.md",
+  "homepage": "https://github.com/Ivan-Galaido/mesto",
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.12",
