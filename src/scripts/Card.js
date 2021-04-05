@@ -1,4 +1,4 @@
-import { CardPopup } from './pages/index.js';
+import { CardPopup } from '../pages/index.js';
 export default class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
