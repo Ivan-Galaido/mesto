@@ -148,3 +148,5 @@ profileFormValidator.enableValidation();
 
 const cardFormValidator = new FormValidator(VALIDATION_SETTINGS, cardForm);
 cardFormValidator.enableValidation();
+editProfileButton.addEventListener('click', openUserProfileForm);
+addCardButton.addEventListener('click', openCardForm);
