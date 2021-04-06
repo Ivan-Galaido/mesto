@@ -26,18 +26,11 @@ export default class Card {
       this._likeButton.classList.toggle('button_like_liked');
     });
 
-    this._deleteButton.addEventListener('click', () => {
-      this._card.style.transition = '0.5s';
-      this._card.style.transform = 'scale(0, 0.3) rotate(360deg)';
-      this._card.style.opacity = '0';
-      setTimeout(() => {
+    this._deleteButton.addEventListener('click', () => 
         this._card.remove();
-      }, 500);
     });
 
     this._cardImage.addEventListener('click', (evt) => {
-      //prevent the page from scrolling 
-      //to the top when click on an anchor
       evt.preventDefault();
       this._cardImage.getAttribute('href').replace('');
       this._handleCardClick(this._name, this._link);
