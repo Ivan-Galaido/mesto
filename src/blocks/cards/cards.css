@@ -1,12 +1,12 @@
 .cards {
-	max-width: 880px;
-	min-width: 282px;
-	padding-bottom: 48px;
-	margin: 0 auto 0 auto;
+  max-width: 880px;
+  min-width: 242px;
+  padding-bottom: 66px;
+  margin: 0 auto;
 }
 
-@media screen and (min-width: 768px) {
-	.cards {
-		padding-bottom: 66px;
-	}
+@media screen and (max-width: 635px) {
+  .cards {
+    padding-bottom: 48px;
+  }
 }

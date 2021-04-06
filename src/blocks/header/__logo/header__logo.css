@@ -1,14 +1,27 @@
-.header__logo  {
-  width: 103.74px;
-  height: 24.4px;
-  margin-bottom: 31.6px;
-  margin-left: 27px;
+.header__logo {
+  background-image: url(../../../images/logo-header.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  max-width: 142px;
+  height: 33px;
+  transition: all .8s;
 }
-@media screen and (min-width:1280px){
-  .header__logo{
-    width: 142px;
-    height: 33px;
-    margin-bottom: 41px;
-    margin-left: 0;
+
+.header__logo:hover {
+  opacity: .5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 938px) {
+  .header__logo {
+    transform: translateX(27px);
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .header__logo {
+    max-width: 104px;
+    height: 24px;
   }
 }
