@@ -1,23 +1,25 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Место">
+  <title>Место</title>
 </head>
 
 <body class="page">
     <header class="header">
-      <img class="header__logo" src="images/logo.svg" alt="логотип">
+      <a class="header__logo" aria-label="На главную" 
+        href="./index.html" target="_self"></a>
     </header>
 
     <main>
       <section class="profile">
-        <img class="profile__avatar" src="images/avatar.png" alt="Ваш аватар">
+        <img class="profile__avatar" src="<%=require('./images/avatar-image.jpg')%>" alt="Ваш аватар">
         <div class="profile__user-info">
           <div class="profile__heading">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="button button_edit" aria-label="Редактировать" type="button"></button>
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="button button_edit" aria-label="Редактировать профиль" type="button"></button>
           </div>
           <p class="profile__description">Исследователь океана</p>
         </div>
@@ -28,11 +30,13 @@
         <ul class="cards__list">
           <template class="template-card">
             <li class="card">
-              <a class="card__preview" aria-label="Увеличить изображение" href="#" target="_self"></a>
+              <div class="card__image">
+                <a class="card__preview" aria-label="Увеличить изображение" href="#" target="_self"></a>
+              </div>
               <button class="button button_delete" aria-label="Удалить изображение" type="button"></button>
               <div class="card__caption">
                 <h2 class="card__heading"></h2>
-                <button class="button button_like_null" aria-label="Нравится" type="button"></button>
+                <button class="button button_like_default" aria-label="Нравится" type="button"></button>
               </div>
             </li>
           </template>
@@ -41,37 +45,38 @@
     </main>
 
     <footer class="footer">
-      <p class="footer__copyright">© 2021 Mesto Russia</p>
+        <p class="footer__copyright">© 2021 Mesto Russia</p>
     </footer>
 
-    <section class="popup" id="editProfilePopup" aria-label="Редактировать профиль">
+    <section class="popup" id="userProfilePopup" aria-label="Редактировать профиль">
       <div class="popup__container">
         <button class="button button_close" aria-label="Закрыть" type="button"></button>
-        <form class="form" name="editProfileForm" novalidate>
+        <form class="form" name="userProfileForm" novalidate>
           <h2 class="form__heading">Редактировать профиль</h2>
           <fieldset class="form__input-container">
-            <input class="form__input form__input_el_heading" id="heading-input" type="text" 
-              name="heading" value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
-            <span class="form__error heading-input-error"></span>
-            <input class="form__input form__input_el_subheading" id="subheading-input" type="text" 
-              name="subheading" value="Исследователь океана" minlength="2" maxlength="200" required>
-            <span class="form__error subheading-input-error"></span>
+              <input class="form__input form__input_el_heading" id="heading-input" type="text"
+                     name="heading" value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
+              <span class="form__error heading-input-error"></span>
+              <input class="form__input form__input_el_subheading" id="subheading-input" type="text"
+                     name="subheading" value="Исследователь океана" minlength="2" maxlength="200" required>
+              <span class="form__error subheading-input-error"></span>
           </fieldset>
           <button class="form__submit-btn" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
-        <section class="popup" id="addCardPopup" aria-label="Создать новое место">
+
+    <section class="popup" id="newCardPopup" aria-label="Создать новое место">
       <div class="popup__container">
         <button class="button button_close" aria-label="Закрыть" type="button"></button>
-        <form class="form" name="addCardForm" novalidate>
+        <form class="form" name="newCardForm" novalidate>
           <h2 class="form__heading">Новое место</h2>
           <fieldset class="form__input-container">
             <input class="form__input form__input_el_image-caption" id="image-caption-input" type="text" 
-              name="imageCaption" placeholder="Название" minlength="2" maxlength="30" required>
+              name="name" placeholder="Название" minlength="2" maxlength="30" required>
             <span class="form__error image-caption-input-error"></span>
             <input class="form__input form__input_el_image-link" id="image-link-input" type="url" 
-              name="imageLink" placeholder="Ссылка на картинку" required>
+              name="link" placeholder="Ссылка на картинку" required>
             <span class="form__error image-link-input-error"></span>
           </fieldset>
           <button class="form__submit-btn" id="cardFormSubmitBtn" type="submit">Создать</button>
@@ -79,7 +84,7 @@
       </div>
     </section>
 
-    <section class="popup popup_overlay" id="showCardPopup" aria-label="Окно просмотра изображения">
+    <section class="popup popup_overlay_black" id="fullImagePopup" aria-label="Окно просмотра изображения">
       <div class="popup__container">
         <button class="button button_close" aria-label="Закрыть" type="button"></button>
         <figure class="photo">

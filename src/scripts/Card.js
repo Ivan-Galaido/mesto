@@ -1,55 +1,54 @@
-import { CardPopup } from '../pages/index.js';
 export default class Card {
-  constructor(data, cardSelector) {
-    this._name = data.name;
-    this._link = data.link;
+  constructor({ name, link }, cardSelector, handleCardClick) {
+    this._name = name;
+    this._link = link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
+    this._card = this._getTemplate();
+    this._likeButton = this._card.querySelector('.button_like_default');
+    this._deleteButton = this._card.querySelector('.button_delete');
+    this._cardImage = this._card.querySelector('.card__preview');
+    this._cardHeading = this._card.querySelector('.card__heading');
   }
 
   _getTemplate() {
     const cardElement = document
       .querySelector(this._cardSelector)
       .content
+      .querySelector('.card')
       .cloneNode(true);
 
     return cardElement;
   }
 
-  _handleLike(evt) {
-    evt.target.classList.toggle('button_like');
-  }
-
-  _handleDelete(evt) {
-    evt.target.closest('.card').remove();
-  }
-
-  _handleFullView(evt) {
-    evt.preventDefault();
-    this._card = evt.target.closest('.card');
-    this._card.querySelector('.card__preview').getAttribute('href').replace('');
-    handleCardPopup(this._name, this._link);
-  }
-
   _setEventListeners() {
-    this._card.querySelector('.button_like_null').addEventListener('click', (evt) => {
-      this._handleLike(evt);
+    this._likeButton.addEventListener('click', () => {
+      this._likeButton.classList.toggle('button_like_liked');
     });
 
-    this._card.querySelector('.button_delete').addEventListener('click', (evt) => {
-      this._handleDelete(evt);
+    this._deleteButton.addEventListener('click', () => {
+      this._card.style.transition = '0.5s';
+      this._card.style.transform = 'scale(0, 0.3) rotate(360deg)';
+      this._card.style.opacity = '0';
+      setTimeout(() => {
+        this._card.remove();
+      }, 500);
     });
 
-    this._card.querySelector('.card__preview').addEventListener('click', (evt) => {
-      this._handleFullView(evt);
+    this._cardImage.addEventListener('click', (evt) => {
+      //prevent the page from scrolling 
+      //to the top when click on an anchor
+      evt.preventDefault();
+      this._cardImage.getAttribute('href').replace('');
+      this._handleCardClick(this._name, this._link);
     });
   }
 
   generateCard() {
-    this._card = this._getTemplate();
     this._setEventListeners();
 
-    this._card.querySelector('.card__heading').textContent = this._name;
-    this._card.querySelector('.card__preview').style.backgroundImage = `url(${this._link})`;
+    this._cardHeading.textContent = this._name;
+    this._cardImage.style.backgroundImage = `url(${this._link})`;
 
     return this._card;
   }

@@ -6,11 +6,11 @@ export default class FormValidator {
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
     this._form = form;
+    this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
+    this._buttonElem = this._form.querySelector(this._submitButtonSelector);
   }
 
   _setEventListeners() {
-    this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
-    this._buttonElem = this._form.querySelector(this._submitButtonSelector);
     this._toggleButtonState();
 
     this._inputList.forEach(inputElem => inputElem.addEventListener('input', () => {
@@ -55,16 +55,13 @@ export default class FormValidator {
     }
   }
 
+  resetValidation() {
+    this._inputList.forEach(inputElem => this._hideInputError(inputElem));
+    this._toggleButtonState();
+  }
+
   enableValidation() {
     this._form.addEventListener('submit', (evt) => evt.preventDefault());
     this._setEventListeners();
   }
 }
-const VALIDATION_SETTINGS = {
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__submit-btn',
-  inactiveButtonClass: 'form__submit-btn_disabled',
-  inputErrorClass: 'form__input_type_error',
-  errorClass: 'form__error_visible'
-};
-export { VALIDATION_SETTINGS };
