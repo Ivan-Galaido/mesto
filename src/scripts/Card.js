@@ -26,7 +26,7 @@ export default class Card {
       this._likeButton.classList.toggle('button_like_liked');
     });
 
-    this._deleteButton.addEventListener('click', () => 
+    this._deleteButton.addEventListener('click', () => { 
         this._card.remove();
     });
 
