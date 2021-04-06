@@ -7,30 +7,29 @@ import PopupWithImage from '../scripts/PopupWithImage.js';
 import UserInfo from '../scripts/UserInfo.js';
 
 const INITIAL_CARDS = [
-    {
-        name: '��������� �������',
-        link: 'https://sun9-43.userapi.com/impf/gz67yP2o8NkStpCV4QuBNx2P3OXVjisGkZQoMQ/39EhGhrVW6Q.jpg?size=2400x1600&quality=96&proxy=1&sign=6ee623378e0ee7c5204a39b3a3be2414&type=album'
-    },
-    {
-        name: '������������ �����',
-        link: 'https://sun9-27.userapi.com/impf/dbl2Yd4invRrtNdREVxu665kcjXTSb59P_jY3w/2-Y4MC1tPIs.jpg?size=1920x1080&quality=96&proxy=1&sign=80e750495a7a2b6ee43d37941c0e02aa&type=album'
-    },
-    {
-        name: '��������� �����',
-        link: 'https://sun9-58.userapi.com/impf/E7EjGoWAMWV-ppYK3K3LDwnuNKVky5Uq0dxdqw/RqK1Z58RrUk.jpg?size=1920x1080&quality=96&proxy=1&sign=ebb00a474c3e6cf340c1fffc05a355a1&type=album'
-    },
-    {
-        name: '��������������� ��������',
-        link: 'https://sun9-20.userapi.com/impf/KpFi6ksieinJJeTJFPsSdiVf1ypYwGiI0TTC6w/CHeIFgP5-nE.jpg?size=1200x1200&quality=96&proxy=1&sign=ccae8918200dd5c9ca4e64efb30bd508&type=album'
-    },
-    {
-        name: '�������� �����',
-        link: 'https://sun9-44.userapi.com/impf/qWBh1p0UW-MGofXotwnHZAyYcTKysVXF_838_A/Q7kE9EbWyq4.jpg?size=973x1080&quality=96&proxy=1&sign=2d54a9b01befddc38c7497a1d44adbe8&type=album'
-    },
-    {
-        name: '���� �� �����',
-        link: 'https://sun9-66.userapi.com/impf/kKwvjRopOCyT4tMaSGMOPGtgXWefMiydnE2PMA/Vut-6vCJQUE.jpg?size=2560x1497&quality=96&proxy=1&sign=889a667736dd008d4a0d998689776b8b&type=album'
-    }
+  {
+    name: 'Дворцовая площадь',
+    link: 'https://sun9-43.userapi.com/impf/gz67yP2o8NkStpCV4QuBNx2P3OXVjisGkZQoMQ/39EhGhrVW6Q.jpg?size=2400x1600&quality=96&proxy=1&sign=6ee623378e0ee7c5204a39b3a3be2414&type=album'  },
+  {
+    name: 'Исаакиевский собор',
+    link: 'https://sun9-27.userapi.com/impf/dbl2Yd4invRrtNdREVxu665kcjXTSb59P_jY3w/2-Y4MC1tPIs.jpg?size=1920x1080&quality=96&proxy=1&sign=80e750495a7a2b6ee43d37941c0e02aa&type=album'
+  },
+  {
+    name: 'Казанский собор',
+    link: 'https://sun9-58.userapi.com/impf/E7EjGoWAMWV-ppYK3K3LDwnuNKVky5Uq0dxdqw/RqK1Z58RrUk.jpg?size=1920x1080&quality=96&proxy=1&sign=ebb00a474c3e6cf340c1fffc05a355a1&type=album'
+  },
+  {
+    name: 'Петропавловская крепость',
+    link: 'https://sun9-20.userapi.com/impf/KpFi6ksieinJJeTJFPsSdiVf1ypYwGiI0TTC6w/CHeIFgP5-nE.jpg?size=1200x1200&quality=96&proxy=1&sign=ccae8918200dd5c9ca4e64efb30bd508&type=album'
+  },
+  {
+    name: 'Смольный собор',
+    link: 'https://sun9-44.userapi.com/impf/qWBh1p0UW-MGofXotwnHZAyYcTKysVXF_838_A/Q7kE9EbWyq4.jpg?size=973x1080&quality=96&proxy=1&sign=2d54a9b01befddc38c7497a1d44adbe8&type=album'
+  },
+  {
+    name: 'Спас на Крови',
+    link: 'https://sun9-66.userapi.com/impf/kKwvjRopOCyT4tMaSGMOPGtgXWefMiydnE2PMA/Vut-6vCJQUE.jpg?size=2560x1497&quality=96&proxy=1&sign=889a667736dd008d4a0d998689776b8b&type=album'
+  }
 ];
 
 const VALIDATION_SETTINGS = {
