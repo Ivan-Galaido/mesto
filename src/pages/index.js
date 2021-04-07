@@ -1,10 +1,10 @@
 import './index.css';
-import Card from '../scripts/Card.js';
-import Section from '../scripts/Section.js';
-import FormValidator from '../scripts/FormValidator.js';
-import PopupWithForm from '../scripts/PopupWithForm.js';
-import PopupWithImage from '../scripts/PopupWithImage.js';
-import UserInfo from '../scripts/UserInfo.js';
+import Card from '../scripts/components/Card.js';
+import Section from '../scripts/components/Section.js';
+import FormValidator from '../scripts//components/FormValidator.js';
+import PopupWithForm from '../scripts/components/PopupWithForm.js';
+import PopupWithImage from '../scripts/components/PopupWithImage.js';
+import UserInfo from '../scripts/components/UserInfo.js';
 
 const INITIAL_CARDS = [
   {
@@ -53,7 +53,6 @@ const openUserProfileForm = () => {
   const info = userInfo.getUserInfo();
   profileNameInput.value = info.username;
   profileDescInput.value = info.description;
-
   profileFormValidator.resetValidation();
   userProfilePopup.open();
 };
@@ -110,4 +109,3 @@ cardFormValidator.enableValidation();
 
 editProfileButton.addEventListener('click', openUserProfileForm);
 addCardButton.addEventListener('click', openCardForm);
-
