@@ -1,14 +1,19 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, handleCardClick) {
+  constructor({ name, link, likes, _id }, 
+    cardSelector, { handleCardClick, handleCardRemoval, handleCardLike }, 
+    isCardLiked, isOwner) {
     this._name = name;
     this._link = link;
+    this._likes = likes;
+    this._cardId = _id;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._handleCardRemoval = handleCardRemoval;
+    this._handleCardLike = handleCardLike;
+    this._isCardLiked = isCardLiked;
+    this._isOwner = isOwner;
     this._card = this._getTemplate();
-    this._likeButton = this._card.querySelector('.button_like_default');
-    this._deleteButton = this._card.querySelector('.button_delete');
-    this._cardImage = this._card.querySelector('.card__preview');
-    this._cardHeading = this._card.querySelector('.card__heading');
+    this._showFullImage = this._showFullImage.bind(this);
   }
 
   _getTemplate() {
@@ -23,25 +28,55 @@ export default class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => {
-      this._likeButton.classList.toggle('button_like_liked');
+      this._handleCardLike(this._cardId);
     });
 
-    this._deleteButton.addEventListener('click', () => { 
-        this._card.remove();
-    });
+    if (this._isOwner) {
+      this._deleteButton.addEventListener('click', () => {
+        this._handleCardRemoval(this, this._cardId);
+      });
+    }
 
-    this._cardImage.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      this._cardImage.getAttribute('href').replace('');
-      this._handleCardClick(this._name, this._link);
-    });
+    this._cardImage.addEventListener('click', this._showFullImage);
+  }
+
+  _showFullImage() {
+    this._handleCardClick(this._name, this._link);
+  };
+
+  toggleLike({ likes }) {
+    this._isCardLiked = !this._isCardLiked;
+    this._likeButton.classList.toggle('button_like_liked');
+    this._likesQuantity.textContent = likes.length;
+  }
+
+  setLoading(isLoading) {
+    if (isLoading) {
+      this._likeButton.classList.add('heartbeat');
+    } else {
+      this._likeButton.classList.remove('heartbeat');
+    }
+  }
+
+  _showLikes() {
+    this._likesQuantity.textContent = this._likes.length;
   }
 
   generateCard() {
-    this._setEventListeners();
+    this._likeButton = this._card.querySelector('.button_like_default');
+    this._deleteButton = this._card.querySelector('.button_delete');
+    this._cardImage = this._card.querySelector('.card__preview');
+    this._cardHeading = this._card.querySelector('.card__heading');
+    this._likesQuantity = this._card.querySelector('.card__likes-quantity');
 
     this._cardHeading.textContent = this._name;
     this._cardImage.style.backgroundImage = `url(${this._link})`;
+
+    if (this._isCardLiked) this._likeButton.classList.add('button_like_liked');
+    if (!this._isOwner) this._deleteButton.remove();
+
+    this._setEventListeners();
+    this._showLikes();
 
     return this._card;
   }
