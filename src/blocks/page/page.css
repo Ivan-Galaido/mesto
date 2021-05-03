@@ -1,6 +1,25 @@
 .page {
-    font-family: Inter, Arial, sans-serif;
-    background-color: #000;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: Inter, Arial, sans-serif;
+  background-color: #000;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+ min-height: calc(100vh - 200px);
+}
+
+@media screen and (max-width: 938px) {
+  .page {
+    min-height: calc(100vh - 176px);
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .page {
+    min-height: calc(100vh - 141px);
+  }
 }
