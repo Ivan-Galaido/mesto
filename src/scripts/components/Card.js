@@ -62,6 +62,15 @@ export default class Card {
     this._likesQuantity.textContent = this._likes.length;
   }
 
+  deleteCard() {
+    this._card.style.transition = '0.5s';
+    this._card.style.transform = 'scale(0, 0.3) rotate(360deg)';
+    this._card.style.opacity = '0';
+    setTimeout(() => {
+      this._card.remove();
+    }, 500);
+  }
+
   generateCard() {
     this._likeButton = this._card.querySelector('.button_like_default');
     this._deleteButton = this._card.querySelector('.button_delete');

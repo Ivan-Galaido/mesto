@@ -1,3 +1,5 @@
+'use strict';
+
 import './index.css';
 import { 
   VALIDATION_SETTINGS,
@@ -21,7 +23,7 @@ import PopupWithConfirm from '../scripts/components/PopupWithConfirm.js';
 import UserInfo from '../scripts/components/UserInfo.js';
 import Api from '../scripts/components/Api.js';
 
-
+//user profile popup
 const userInfo = new UserInfo(
   '.profile__name', 
   '.profile__description', 
@@ -48,7 +50,7 @@ const submitUserProfileForm = ({ username, description }) => {
 const userProfilePopup = new PopupWithForm('#userProfilePopup', submitUserProfileForm);
 userProfilePopup.setEventListeners();
 
-
+//update avatar popup
 const openUpdateAvatarForm = () => {
   updateAvatarFormValidator.resetValidation();
   updateAvatarPopup.open();
@@ -65,7 +67,7 @@ const submitUpdateAvatarForm = ({ avatar }) => {
 const updateAvatarPopup = new PopupWithForm('#updateAvatarPopup', submitUpdateAvatarForm);
 updateAvatarPopup.setEventListeners();
 
-
+//new card popup
 const openCardForm = () => {
   cardFormValidator.resetValidation();
   cardPopup.open();
@@ -82,9 +84,11 @@ const submitCardForm = ({ name, link }) => {
 const cardPopup = new PopupWithForm('#newCardPopup', submitCardForm);
 cardPopup.setEventListeners();
 
+//full image popup
 const fullImagePopup = new PopupWithImage('#fullImagePopup');
 fullImagePopup.setEventListeners();
 
+//confirm popup
 const submitCardRemoval = (evt, card, cardId) => {
   evt.preventDefault();
   api.deleteCard(cardId)
@@ -97,6 +101,7 @@ const submitCardRemoval = (evt, card, cardId) => {
 const confirmPopup = new PopupWithConfirm('#confirmPopup', submitCardRemoval);
 confirmPopup.setEventListeners();
 
+//page condition on load
 const createCard = ({ name, link, likes, _id, owner }) => {
   const isOwner = owner._id === userInfo._userId;
   const isCardLiked = likes.some(user => user._id === userInfo._userId);
