@@ -4,7 +4,9 @@ export default class UserInfo {
     this._userDesc = document.querySelector(userDescSelector);
     this._userAvatar = document.querySelector(userAvatarSelector);
   }
-
+  getUserId() {
+  return this._userId;
+}
   getUserInfo() {
     return {
       username: this._username.textContent,
