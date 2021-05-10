@@ -95,8 +95,8 @@ const confirmPopup = new PopupWithConfirm('#confirmPopup', submitCardRemoval);
 confirmPopup.setEventListeners();
 
 const createCard = ({ name, link, likes, _id, owner }) => {
-  const isOwner = owner._id === userInfo.getUserId;
-  const isCardLiked = likes.some(user => user._id === userInfo.getUserId);
+  const isOwner = owner._id === userInfo.getUserId();
+  const isCardLiked = likes.some(user => user._id === userInfo.getUserId());
   const card = new Card({ 
       name, 
       link, 
